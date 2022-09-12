@@ -1,0 +1,4 @@
+Juan:Sevilla:33
+Pepe:Boston:29
+Maria::20
+Aurelio:Barcelona:
