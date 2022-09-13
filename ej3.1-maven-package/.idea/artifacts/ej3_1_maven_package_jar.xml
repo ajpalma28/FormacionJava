@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ej3.1-maven-package:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ej3_1_maven_package_jar</output-path>
+    <root id="archive" name="ej3.1-maven-package.jar">
+      <element id="module-output" name="ej3.1-maven-package" />
+    </root>
+  </artifact>
+</component>
