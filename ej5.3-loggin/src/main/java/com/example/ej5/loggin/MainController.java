@@ -20,6 +20,9 @@ public class MainController {
 
         System.out.println("Howdy! Check out the Logs to see the output...");
 
+        // TODO: Hacer un logback-spring.xml donde se indique cuales se leen, cuales se muestran
+        // TODO: por pantalla y cuales no se hace nada con ellos
+
         return "Howdy! Check out the Logs to see the output...";
     }
 }
