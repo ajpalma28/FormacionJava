@@ -1,8 +1,12 @@
 package com.example.ej5.profiles;
 
+import com.example.ej5.profiles.config.SourceInt;
+import com.example.ej5.profiles.config.SourceLocal;
+import com.example.ej5.profiles.config.SourcePro;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -24,14 +28,17 @@ public class Prueba implements CommandLineRunner {
             case "local":
                 // TODO
                 System.out.println("RECIBIDO LOCAL");
+                new SourceLocal().run();
                 break;
             case "INT":
                 // TODO
                 System.out.println("RECIBIDO INT");
+                new SourceInt().run();
                 break;
             case "PRO":
                 // TODO
                 System.out.println("RECIBIDO PRO");
+                new SourcePro().run();
                 break;
             default:
                 System.out.println("Comando no reconocido.");

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>ej5.6-profiles</artifactId>
+	<artifactId>ej6.1-simple-controllers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ej5.6-profiles</name>
+	<name>ej6.1-simple-controllers</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -27,11 +27,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-        </dependency>
-    </dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
