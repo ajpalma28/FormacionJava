@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@PropertySource("classpath:application-local.properties")
+@PropertySource("application-local.properties")
 @Profile("local")
 @Component
 public class SourceLocal {
@@ -19,6 +19,6 @@ public class SourceLocal {
     private String url;
 
     public void run(){
-        System.out.println("PERFIL LOCAL ACTIVADO");
+        System.out.println("PERFIL LOCAL ACTIVADO "+url);
     }
 }

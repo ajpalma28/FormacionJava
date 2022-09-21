@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@PropertySource("classpath:application-int.properties")
+@PropertySource("application-int.properties")
 @Profile("INT")
 @Component
 public class SourceInt {
@@ -19,6 +19,6 @@ public class SourceInt {
     private String url;
 
     public void run(){
-        System.out.println("PERFIL INT ACTIVADO");
+        System.out.println("PERFIL INT ACTIVADO "+url);
     }
 }

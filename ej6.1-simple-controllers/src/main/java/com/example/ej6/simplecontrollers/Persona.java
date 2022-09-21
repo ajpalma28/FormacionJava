@@ -13,4 +13,10 @@ public class Persona {
     @JsonProperty("ciudad")
     public String ciudad;
 
+    public Persona(@JsonProperty("name") String n, @JsonProperty("edad") String e, @JsonProperty("ciudad") String c){
+        nombre = n;
+        edad = e;
+        ciudad = c;
+    }
+
 }

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@PropertySource("classpath:application-pro.properties")
+@PropertySource("application-pro.properties")
 @Profile("PRO")
 @Component
 public class SourcePro {
@@ -19,6 +19,6 @@ public class SourcePro {
     private String url;
 
     public void run(){
-        System.out.println("PERFIL PRO ACTIVADO");
+        System.out.println("PERFIL PRO ACTIVADO "+url);
     }
 }

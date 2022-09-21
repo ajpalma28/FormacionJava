@@ -40,4 +40,8 @@ public class PersonImpl implements Person {
     public void setCiudad(String n) {
         ciudad = n;
     }
+
+    public String toString(){
+        return "Nombre: "+name+"; Edad: "+edad+"; Ciudad: "+ciudad+".";
+    }
 }
