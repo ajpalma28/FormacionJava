@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "cff6404a-9df4-4150-980d-baddf619ec5c",
+		"name": "ej6.3-path-variable-headers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. GET greeting",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/greeting",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"greeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. GET greeting?name=Fernando",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/greeting?name=Fernando",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"greeting"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Fernando"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. POST addGreeting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"content\": \"Buenos dias, miarma\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/addGreeting",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addGreeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. GET user/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/user/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. PUT post?var1=1&var2=Buenas noches señora",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/post?var1=1&var2=Buenas noches señora",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post"
+					],
+					"query": [
+						{
+							"key": "var1",
+							"value": "1"
+						},
+						{
+							"key": "var2",
+							"value": "Buenas noches señora"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

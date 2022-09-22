@@ -5,11 +5,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.test.context.ActiveProfiles;
 
 @Configuration
-@PropertySource("application-local.properties")
+@PropertySource("classpath:application-local.properties")
 @Profile("local")
-@Component
+@ActiveProfiles("local")
+@Service
 public class SourceLocal {
 
     @Value("${environment}")
