@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "f74eab95-957f-4157-a464-8f707384f1a4",
+		"name": "ej6.1-simple-controllers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET user/Lucas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/user/Lucas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"Lucas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST useradd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ana\",\r\n    \"edad\": 40,\r\n    \"ciudad\": \"Carmona\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/useradd",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"useradd"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

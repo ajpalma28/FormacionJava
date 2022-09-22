@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "5e3cb39e-7a70-4f96-a6b0-22bfd9fe8fb5",
+		"name": "ej6.2-person-controllers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET controlador1/addPersona - 1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "Sara",
+						"type": "default"
+					},
+					{
+						"key": "edad",
+						"value": "23",
+						"type": "default"
+					},
+					{
+						"key": "ciudad",
+						"value": "Estepa",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Puri\",\r\n    \"edad\": \"23\",\r\n    \"ciudad\": \"Sevilla\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/controlador1/addPersona",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador1",
+						"addPersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET controlador1/addPersona - 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "Pepe",
+						"type": "default"
+					},
+					{
+						"key": "edad",
+						"value": "13",
+						"type": "default"
+					},
+					{
+						"key": "ciudad",
+						"value": "Sevilla",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Puri\",\r\n    \"edad\": \"23\",\r\n    \"ciudad\": \"Sevilla\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/controlador1/addPersona",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador1",
+						"addPersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET controlador1/addPersona - 3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "Eulalia",
+						"type": "default"
+					},
+					{
+						"key": "edad",
+						"value": "57",
+						"type": "default"
+					},
+					{
+						"key": "ciudad",
+						"value": "Almeria",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Puri\",\r\n    \"edad\": \"23\",\r\n    \"ciudad\": \"Sevilla\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/controlador1/addPersona",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador1",
+						"addPersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET controlador2/getPersona",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "nombre",
+						"value": "Pepe",
+						"type": "default"
+					},
+					{
+						"key": "ciudad",
+						"value": "Sevilla",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/controlador2/getPersona",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador2",
+						"getPersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST controlador1/addCiudad",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "nombre",
+						"value": "Estepa",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/controlador1/addCiudad",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador1",
+						"addCiudad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET controlador1/getCiudad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/controlador1/getCiudad",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador1",
+						"getCiudad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET controlador/bean/bean1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/controlador/bean/bean1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador",
+						"bean",
+						"bean1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
