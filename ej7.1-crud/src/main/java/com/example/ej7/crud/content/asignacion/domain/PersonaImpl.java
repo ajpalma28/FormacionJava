@@ -41,4 +41,8 @@ public class PersonaImpl implements Persona {
     public void setPoblacion(String p) {
         poblacion = p;
     }
+
+    public String toString(){
+        return "Nombre: "+nombre+"; Edad: "+edad+"; Ciudad: "+poblacion+".";
+    }
 }
