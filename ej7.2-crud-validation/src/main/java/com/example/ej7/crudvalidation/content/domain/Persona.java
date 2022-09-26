@@ -1,47 +1,62 @@
 package com.example.ej7.crudvalidation.content.domain;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
+@Data
 @Entity
-public class Persona {
+@Table(name = "persona")
+public class Persona implements java.io.Serializable {
 
     @Id
     @GeneratedValue
     private int id;
+    @NotNull(message = "El usuario no puede ser nulo")
     private String usuario;
+    @NotNull(message = "La contraseña no puede ser vacía")
     private String password;
+    @NotNull(message = "La persona debe tener nombre")
     private String name;
     private String surname;
+    @NotNull(message = "La persona debe tener correo corporativo")
     private String company_email;
+    @NotNull(message = "La persona debe tener su correo personal registrado")
     private String personal_email;
+    @NotNull(message = "La persona debe tener una ciudad registrada")
     private String city;
+    @NotNull(message = "El valor de la actividad debe ser el correcto")
     private Boolean active;
-    private Date created_date;
+    @NotNull(message = "Hay que guardar la fecha de creación de la persona")
+    private String created_date;
     private String imagen_url;
-    private Date termination_date;
+    private String termination_date;
 
     public Persona(String u, String pw, String n, String sn, String ce, String pe, String c, Boolean act,
-                   Date cd, String img, Date td){
+                       String cd, String img, String td){
         try {
-            compruebaUsuario(u);
             usuario = u;
-            compruebaPW(pw);
+            //compruebaPW(pw);
             password = pw;
-            compruebaNombre(n);
+            //compruebaNombre(n);
             name = n;
             surname = sn;
-            compruebaEmail1(ce);
+            //compruebaEmail1(ce);
             company_email = ce;
-            compruebaEmail2(pe);
+            //compruebaEmail2(pe);
             personal_email = pe;
-            compruebaCiudad(c);
+            //compruebaCiudad(c);
             city = c;
-            compruebaAct(act);
+            //compruebaAct(act);
             active = act;
-            compruebaFecha(cd);
+            //compruebaFecha(cd);
             created_date = cd;
             imagen_url = img;
             termination_date = td;
@@ -49,6 +64,10 @@ public class Persona {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public int getId(){
+        return id;
     }
 
     public String getUsuario(){
@@ -83,7 +102,7 @@ public class Persona {
         return active;
     }
 
-    public Date getCreatedDate(){
+    public String getCreatedDate(){
         return created_date;
     }
 
@@ -91,8 +110,8 @@ public class Persona {
         return imagen_url;
     }
 
-    public Date getTerminationDate(){
-        return getTerminationDate();
+    public String getTerminationDate(){
+        return termination_date;
     }
 
     public void setUsuario(String u){
@@ -168,7 +187,7 @@ public class Persona {
 
     }
 
-    public void setCreatedDate(Date cd){
+    public void setCreatedDate(String cd){
         try{
             compruebaFecha(cd);
             created_date = cd;
@@ -181,12 +200,12 @@ public class Persona {
         imagen_url = u;
     }
 
-    public void setTerminationDate(Date td){
+    public void setTerminationDate(String td){
         termination_date = td;
     }
 
-    private void compruebaUsuario(String u) throws Exception {
-        if(u == null || u.equals("")){
+    public void compruebaUsuario(String u) throws Exception {
+        if(u == null){
             throw new Exception("El usuario no puede estar vacío");
         }else{
             if(u.length()<6 || u.length()>10){
@@ -195,46 +214,55 @@ public class Persona {
         }
     }
 
-    private void compruebaPW(String pw) throws Exception{
+    public void compruebaPW(String pw) throws Exception{
         if(pw == null || pw.equals("")){
             throw new Exception("Falta la contraseña");
         }
     }
 
-    private void compruebaNombre(String n) throws Exception{
+    public void compruebaNombre(String n) throws Exception{
         if(n==null || n.equals("")){
             throw new Exception("Falta el nombre");
         }
     }
 
-    private void compruebaEmail1(String e) throws Exception{
+    public void compruebaEmail1(String e) throws Exception{
         if(e==null || e.equals("")){
             throw new Exception("Falta el email corporativo");
         }
     }
 
-    private void compruebaEmail2(String e) throws Exception{
+    public void compruebaEmail2(String e) throws Exception{
         if(e==null || e.equals("")){
             throw new Exception("Falta el email personal");
         }
     }
 
-    private void compruebaCiudad(String c) throws Exception{
+    public void compruebaCiudad(String c) throws Exception{
         if(c==null || c.equals("")){
             throw new Exception("Falta la ciudad");
         }
     }
 
-    private void compruebaAct(Boolean b) throws Exception{
+    public void compruebaAct(Boolean b) throws Exception{
         if(b==null){
             throw new Exception("Falta indicar si está activo o no");
         }
     }
 
-    private void compruebaFecha(Date d) throws Exception{
+    public void compruebaFecha(String d) throws Exception{
         if(d==null){
             throw new Exception("Falta la fecha de creación");
         }
     }
 
+    public String toString(){
+        return usuario+": "+name+" - "+company_email;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Persona p = (Persona) obj;
+        return this.id==p.getId() && this.usuario.equals(p.getUsuario());
+    }
 }
