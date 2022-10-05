@@ -1,21 +1,20 @@
 package com.example.ej7.crudvalidation.content.domain;
 
 import com.example.ej7.crudvalidation.Generador2;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.sql.Date;
-import java.util.List;
 
-
+@Data
 @Entity
 @Table(name = "asignaturas")
 @Getter
 @Setter
-public class Estudiante_Asignatura {
+public class Estudiante_Asignatura implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "asign-seq")
@@ -27,18 +26,18 @@ public class Estudiante_Asignatura {
                     @org.hibernate.annotations.Parameter(name = Generador2.VALUE_PREFIX_PARAMETER, value = "asign-"),
                     @org.hibernate.annotations.Parameter(name = Generador2.NUMBER_FORMAT_PARAMETER, value = "%04d")
             })
-    String id_asignatura;
+    private String id_asignatura;
     //@OneToMany
     //@JoinColumn(name = "id_student")
     //List<Student> id_student;
     @Column(name = "asignatura")
-    String asignatura;
+    private String asignatura;
     @Column(name = "comentarios")
-    String comments;
+    private String comments;
     @NotNull
     @Column(name = "fecha_inicial")
-    String initial_date;
+    private String initial_date;
     @Column(name = "fecha_final")
-    String finish_date;
+    private String finish_date;
 
 }

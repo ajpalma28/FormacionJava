@@ -33,7 +33,7 @@ public class ProfesorControllerCreate {
     ControllerAux aux = new ControllerAux();
 
     // Método para añadir nueva persona: CREATE en CRUD
-    /*@PostMapping("/profesor")
+    @PostMapping("/profesor")
     public ResponseEntity<Object> addProfesor(@RequestBody Profesor profesor){
         try {
             aux.compruebaBranch(profesor.getBranch());
@@ -54,6 +54,6 @@ public class ProfesorControllerCreate {
             logger.error(e.toString());
             return new ResponseEntity<>(new CustomError(400, e.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }*/
+    }
 
 }

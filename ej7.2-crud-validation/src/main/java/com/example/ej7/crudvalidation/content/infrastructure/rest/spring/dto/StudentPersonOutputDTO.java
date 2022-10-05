@@ -46,4 +46,8 @@ public class StudentPersonOutputDTO {
         imagen_url = p.getImagen_url();
         termination_date = p.getTermination_date();
     }
+
+    public String toString(){
+        return id_student + " - " + user + ": " + company_email;
+    }
 }

@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PersonaOutputDto {
 
-    private int id;
+    private String id;
 
     private String usuario;
 

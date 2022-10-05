@@ -35,8 +35,8 @@ public class ProfesorControllerGet {
     ControllerAux aux = new ControllerAux();
 
     // Método para buscar un profesor por ID: READ en CRUD
-    /*@GetMapping("/profesor/{id}")
-    public ResponseEntity<Object> getProfesorId(@PathVariable int id, @RequestParam(required = false) String outputType){
+    @GetMapping("/profesor/{id}")
+    public ResponseEntity<Object> getProfesorId(@PathVariable String id, @RequestParam(required = false) String outputType){
         try {
             logger.info("BÚSQUEDA DE PROFESOR POR ID = "+id);
             aux.compruebaId(profesorService, id);
@@ -68,7 +68,7 @@ public class ProfesorControllerGet {
             return new ResponseEntity<>(new CustomError(404,error1),HttpStatus.NOT_FOUND);
         }
 
-    }*/
+    }
 
     // Método para buscar todos los profesores: READ en CRUD
     @GetMapping("/profesores/all")

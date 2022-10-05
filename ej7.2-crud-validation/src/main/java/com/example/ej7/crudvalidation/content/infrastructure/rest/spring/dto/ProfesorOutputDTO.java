@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProfesorOutputDTO {
 
-    long id_profesor;
+    String id_profesor;
     Persona persona;
     String comments;
     String branch;

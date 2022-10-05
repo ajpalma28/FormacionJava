@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +42,7 @@ public class PersonaControllerGet {
     ControllerAux aux = new ControllerAux();
 
     // Método para buscar una persona por ID: READ en CRUD
-    /*@GetMapping("/persona/id/{id}")
+    @GetMapping("/persona/id/{id}")
     public ResponseEntity<Object> getPersonaId(@PathVariable String id, @RequestParam(required = false) String outputType) {
         try {
             logger.info("BÚSQUEDA DE PERSONA POR ID = " + id);
@@ -77,7 +78,7 @@ public class PersonaControllerGet {
             return new ResponseEntity<>(new CustomError(404, error1), HttpStatus.NOT_FOUND);
         }
 
-    }*/
+    }
 
     // Método para buscar una persona por nombre: READ en CRUD
     @GetMapping("/persona/usuario/{usuario}")
@@ -96,13 +97,13 @@ public class PersonaControllerGet {
                 } else if (outputType.equals("full")) {
                     switch (rol) {
                         case "Profesor":
-                            Optional<Profesor> p = ps.getProfesores().stream().filter(x -> x.getPersona().getId() == p1.getId()).findFirst();
+                            Optional<Profesor> p = ps.getProfesores().stream().filter(x -> x.getPersona().getId().equals(p1.getId())).findFirst();
                             if (p.isPresent()) {
                                 ProfesorPersonOutputDTO profesorPersonOutputDTO = new ProfesorPersonOutputDTO(p.get(), p1);
                                 return new ResponseEntity<>(profesorPersonOutputDTO, HttpStatus.OK);
                             }
                         case "Estudiante":
-                            Optional<Student> s = ss.getTodos().stream().filter(x -> x.getPersona().getId() == p1.getId()).findFirst();
+                            Optional<Student> s = ss.getTodos().stream().filter(x -> x.getPersona().getId().equals(p1.getId())).findFirst();
                             if (s.isPresent()) {
                                 StudentPersonOutputDTO studentPersonOutputDTO = new StudentPersonOutputDTO(s.get(), p1);
                                 return new ResponseEntity<>(studentPersonOutputDTO, HttpStatus.OK);
@@ -117,15 +118,43 @@ public class PersonaControllerGet {
 
     // Método para buscar todas las personas: READ en CRUD
     @GetMapping("/persona/all")
-    public List<Persona> getListaPersonas() {
+    public List<Object> getListaPersonas(@RequestParam(required = false) String outputType) {
         List<Persona> lista = service.devuelveTodo();
+        List<Object> res = new ArrayList<>();
         if (lista.isEmpty()) {
             logger.error("NO hay personas registradas en la base de datos");
         } else {
-            logger.info("PERSONAS REGISTRADAS: ");
-            lista.forEach(x -> logger.info(x.toString()));
+            if(outputType!=null && outputType.equals("full")){
+               lista.forEach(x->{
+                   String rol = aux.devuelveRol(ps, ss, x.getId());
+                   List<Student> list1 = ss.getTodos();
+                   List<Profesor> list2 = ps.getProfesores();
+                   switch (rol) {
+                       case "Profesor" -> {
+                           Optional<Profesor> prof = list2.stream().filter(x2 -> x2.getPersona().getId().equals(x.getId())).findFirst();
+                           prof.ifPresent(profesor -> res.add(new ProfesorPersonOutputDTO(profesor, x)));
+                       }
+                       case "Estudiante" -> {
+                           Optional<Student> e = list1.stream().filter(x1 -> x1.getPersona().getId().equals(x.getId())).findFirst();
+                           e.ifPresent(student -> res.add(new StudentPersonOutputDTO(student, x)));
+                       }
+                       default -> res.add(x);
+                   }
+
+               });
+               logger.info("PERSONAS REGISTRADAS: ");
+               res.forEach(x3->{
+                   logger.info(x3.toString());
+               });
+            }else{
+                logger.info("PERSONAS REGISTRADAS: ");
+                lista.forEach(x -> {
+                    logger.info(x.toString());
+                    res.add(x);
+                });
+            }
         }
-        return lista;
+        return res;
     }
 
 }

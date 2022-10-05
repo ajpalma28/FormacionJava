@@ -1,13 +1,9 @@
 package com.example.ej7.crudvalidation.content.infrastructure.controller.student;
 
-import com.example.ej7.crudvalidation.content.application.service.PersonaService;
 import com.example.ej7.crudvalidation.content.application.service.StudentService;
-import com.example.ej7.crudvalidation.content.application.service.StudentServiceImpl;
 import com.example.ej7.crudvalidation.content.domain.CustomError;
-import com.example.ej7.crudvalidation.content.domain.Persona;
 import com.example.ej7.crudvalidation.content.domain.Student;
 import com.example.ej7.crudvalidation.content.domain.exceptions.EntityNotFoundException;
-import com.example.ej7.crudvalidation.content.domain.exceptions.UnprocessableEntityException;
 import com.example.ej7.crudvalidation.content.infrastructure.controller.ControllerAux;
 import com.example.ej7.crudvalidation.content.infrastructure.controller.persona.PersonaControllerEdit;
 import org.slf4j.Logger;

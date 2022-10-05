@@ -1,13 +1,10 @@
 package com.example.ej7.crudvalidation.content.domain;
 
 import com.example.ej7.crudvalidation.Generador2;
-import com.example.ej7.crudvalidation.MiGenerador;
-import com.example.ej7.crudvalidation.content.domain.exceptions.UnprocessableEntityException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -69,7 +66,7 @@ public class Persona implements java.io.Serializable {
 
 
     public String toString(){
-        return id + " - "+ usuario+": "+name+" - "+company_email;
+        return id + " - "+ usuario+": "+company_email;
     }
 
     @Override

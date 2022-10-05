@@ -1,6 +1,7 @@
 package com.example.ej7.crudvalidation.content.domain;
 
 import com.example.ej7.crudvalidation.Generador2;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -8,6 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Data
 @Entity
 @Table(name = "profesores")
 @Getter

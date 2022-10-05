@@ -45,4 +45,8 @@ public class ProfesorPersonOutputDTO {
         termination_date = p.getTermination_date();
     }
 
+    public String toString(){
+        return id_profesor + " - " + user + ": " + company_email;
+    }
+
 }

@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class StudentOutputDTO {
 
-    long id_student;
+    String id_student;
     Persona persona;
     Integer num_hours_week;
     String comments;

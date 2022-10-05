@@ -37,8 +37,8 @@ public class StudentControllerGet {
     ControllerAux aux = new ControllerAux();
 
     // Método para buscar una persona por ID: READ en CRUD
-    /*@GetMapping("/estudiante/{id}")
-    public ResponseEntity<Object> getStudentId(@PathVariable int id, @RequestParam(required = false) String outputType){
+    @GetMapping("/estudiante/{id}")
+    public ResponseEntity<Object> getStudentId(@PathVariable String id, @RequestParam(required = false) String outputType){
         try {
             logger.info("BÚSQUEDA DE ESTUDIANTE POR ID = "+id);
             aux.compruebaId(service, id);
@@ -72,7 +72,7 @@ public class StudentControllerGet {
             return new ResponseEntity<>(new CustomError(404,error1),HttpStatus.NOT_FOUND);
         }
 
-    }*/
+    }
 
     // Método para buscar todas las personas: READ en CRUD
     @GetMapping("/estudiantes/all")
