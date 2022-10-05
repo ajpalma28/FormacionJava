@@ -15,9 +15,4 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
-	public List<Persona> cargaPersonas(){
-		return new ArrayList<Persona>();
-	}
-
 }

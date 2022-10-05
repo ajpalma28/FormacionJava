@@ -1,2 +1,15 @@
-package com.example.ej7.crudvalidation.content.application.service;public interface ProfesorService {
+package com.example.ej7.crudvalidation.content.application.service;
+
+import com.example.ej7.crudvalidation.content.domain.Profesor;
+
+import java.util.List;
+
+public interface ProfesorService {
+
+    void addProfesor(Profesor profesor);
+    Profesor getById(String id);
+    Profesor actualizaProfesor(Profesor profesor);
+    List<Profesor> getProfesores();
+    void eliminaProfesor(Profesor profesor);
+    void eliminaById(long id);
 }

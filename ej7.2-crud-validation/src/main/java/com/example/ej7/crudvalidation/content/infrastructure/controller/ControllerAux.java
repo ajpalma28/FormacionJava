@@ -1,14 +1,37 @@
-package com.example.ej7.crudvalidation.content.infrastructure.controller.persona;
+package com.example.ej7.crudvalidation.content.infrastructure.controller;
 
-import com.example.ej7.crudvalidation.content.application.service.PersonaService;
+import com.example.ej7.crudvalidation.content.application.service.*;
+import com.example.ej7.crudvalidation.content.domain.Profesor;
+import com.example.ej7.crudvalidation.content.domain.Student;
 import com.example.ej7.crudvalidation.content.domain.exceptions.EntityNotFoundException;
+import com.example.ej7.crudvalidation.content.domain.exceptions.RolPersonException;
 import com.example.ej7.crudvalidation.content.domain.exceptions.UnprocessableEntityException;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-public class PersonaControllerAux {
+import java.util.Optional;
 
-    public void compruebaId(PersonaService s, int id) throws EntityNotFoundException {
+@NoArgsConstructor
+public class ControllerAux {
+
+    public void compruebaId(PersonaService s, String id) throws EntityNotFoundException {
+        if(s.findById(id)==null){
+            throw new EntityNotFoundException("ID no encontrado en la base de datos");
+        }
+    }
+
+    public void compruebaId(StudentService s, String id) throws EntityNotFoundException {
+        if(s.findById(id)==null){
+            throw new EntityNotFoundException("ID no encontrado en la base de datos");
+        }
+    }
+
+    public void compruebaId(ProfesorService s, String id) throws EntityNotFoundException{
+        if(s.getById(id)==null){
+            throw new EntityNotFoundException("ID no encontrado en la base de datos");
+        }
+    }
+
+    public void compruebaId(Estudiante_AsignaturaService s, String id) throws EntityNotFoundException{
         if(s.findById(id)==null){
             throw new EntityNotFoundException("ID no encontrado en la base de datos");
         }
@@ -66,4 +89,41 @@ public class PersonaControllerAux {
         }
     }
 
+    public void compruebaNumHours(int nh) throws UnprocessableEntityException{
+        if(nh == 0){
+            throw new UnprocessableEntityException("Falta el número de horas del estudiante");
+        }
+    }
+
+    public void compruebaBranch(String branch) throws UnprocessableEntityException{
+        if(branch==null){
+            throw new UnprocessableEntityException("Falta la rama principal del estudiante");
+        }
+    }
+
+    public void compruebaRolCorrecto(StudentService ss, String id) throws RolPersonException {
+        Optional<Student> s = ss.getTodos().stream().filter(x->x.getPersona().getId().equals(id)).findFirst();
+        if (s.isPresent()) {
+            throw new RolPersonException("Esta persona ya tiene rol de estudiante");
+        }
+    }
+
+    public void compruebaRolCorrecto(ProfesorService ps, String id) throws RolPersonException {
+        Optional<Profesor> p = ps.getProfesores().stream().filter(x->x.getPersona().getId().equals(id)).findFirst();
+        if (p.isPresent()) {
+            throw new RolPersonException("Esta persona ya tiene rol de profesor");
+        }
+    }
+
+    public String devuelveRol(ProfesorService ps, StudentService ss, String id){
+        String res = "";
+        Optional<Profesor> p = ps.getProfesores().stream().filter(x-> x.getPersona().getId().equals(id)).findFirst();
+        Optional<Student> s = ss.getTodos().stream().filter(x-> x.getPersona().getId().equals(id)).findFirst();
+        if(p.isPresent()){
+            res = "Profesor";
+        }else if(s.isPresent()){
+            res = "Estudiante";
+        }
+        return res;
+    }
 }

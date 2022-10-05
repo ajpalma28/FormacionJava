@@ -4,6 +4,7 @@ import com.example.ej7.crudvalidation.content.application.service.PersonaService
 import com.example.ej7.crudvalidation.content.domain.CustomError;
 import com.example.ej7.crudvalidation.content.domain.Persona;
 import com.example.ej7.crudvalidation.content.domain.exceptions.EntityNotFoundException;
+import com.example.ej7.crudvalidation.content.infrastructure.controller.ControllerAux;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,11 @@ public class PersonaControllerDelete {
     // Cargamos el logger
     Logger logger = LoggerFactory.getLogger(PersonaControllerEdit.class);
 
-    PersonaControllerAux aux = new PersonaControllerAux();
+    ControllerAux aux = new ControllerAux();
 
     // Método para eliminar persona por ID: DELETE en CRUD
     @DeleteMapping("/persona/{id}")
-    public ResponseEntity<Object> borraPersona(@PathVariable int id){
+    public ResponseEntity<Object> borraPersona(@PathVariable String id){
         try{
             aux.compruebaId(service,id);
             Persona p1 = service.findById(id);

@@ -4,6 +4,7 @@ import com.example.ej7.crudvalidation.content.application.service.PersonaService
 import com.example.ej7.crudvalidation.content.domain.CustomError;
 import com.example.ej7.crudvalidation.content.domain.Persona;
 import com.example.ej7.crudvalidation.content.domain.exceptions.UnprocessableEntityException;
+import com.example.ej7.crudvalidation.content.infrastructure.controller.ControllerAux;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class PersonaControllerCreate {
     // Cargamos el logger
     Logger logger = LoggerFactory.getLogger(PersonaControllerEdit.class);
 
-    PersonaControllerAux aux = new PersonaControllerAux();
+    ControllerAux aux = new ControllerAux();
 
     // Método para añadir nueva persona: CREATE en CRUD
     @PostMapping("/persona")

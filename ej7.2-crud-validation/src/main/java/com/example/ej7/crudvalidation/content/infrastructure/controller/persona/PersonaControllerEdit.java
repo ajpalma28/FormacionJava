@@ -5,6 +5,7 @@ import com.example.ej7.crudvalidation.content.domain.CustomError;
 import com.example.ej7.crudvalidation.content.domain.Persona;
 import com.example.ej7.crudvalidation.content.domain.exceptions.EntityNotFoundException;
 import com.example.ej7.crudvalidation.content.domain.exceptions.UnprocessableEntityException;
+import com.example.ej7.crudvalidation.content.infrastructure.controller.ControllerAux;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,11 @@ public class PersonaControllerEdit {
     // Cargamos el logger
     Logger logger = LoggerFactory.getLogger(PersonaControllerEdit.class);
 
-    PersonaControllerAux aux = new PersonaControllerAux();
+    ControllerAux aux = new ControllerAux();
 
     // Método para actualizar una persona: UPDATE en CRUD
     @PutMapping("/persona/{id}")
-    public ResponseEntity<Object> editaPersona(@PathVariable int id, @RequestBody Persona persona){
+    public ResponseEntity<Object> editaPersona(@PathVariable String id, @RequestBody Persona persona){
         try {
             logger.info("ACTUALIZACIÓN DE PERSONA POR ID = "+id);
             aux.compruebaId(service, id);
