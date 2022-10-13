@@ -1,6 +1,7 @@
 package com.example.ej7.crudvalidation.content.application.service;
 
 import com.example.ej7.crudvalidation.content.domain.Profesor;
+import com.example.ej7.crudvalidation.content.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,4 +50,5 @@ public class ProfesorServiceImpl implements  ProfesorService {
     public void eliminaById(long id) {
         repository.deleteById(id);
     }
+
 }

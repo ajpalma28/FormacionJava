@@ -1,11 +1,13 @@
 package com.example.ej7.crudvalidation.content.application.service;
 
 import com.example.ej7.crudvalidation.content.domain.Persona;
+import com.example.ej7.crudvalidation.content.infrastructure.controller.feign.ProfesorFeignServer;
+import com.example.ej7.crudvalidation.content.infrastructure.rest.spring.dto.ProfesorOutputDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +16,8 @@ public class PersonaService {
 
     @Autowired
     PersonaRepository repository;
+    @Autowired
+    ProfesorFeignServer profesorFeignClient;
 
     public PersonaService(){
 
@@ -51,6 +55,10 @@ public class PersonaService {
         Optional<Persona> p = aux.stream().filter(x->x.getUsuario().equals(s)).findFirst();
         return p.orElse(null);
     }
+
+    /*public ResponseEntity<ProfesorOutputDTO> getProfesor(String id){
+        return profesorFeignClient.getProfesor(id);
+    }*/
 
 
 }

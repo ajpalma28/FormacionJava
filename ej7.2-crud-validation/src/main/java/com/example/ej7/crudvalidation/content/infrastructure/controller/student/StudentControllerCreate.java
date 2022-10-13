@@ -40,7 +40,11 @@ public class StudentControllerCreate {
             aux.compruebaNumHours(student.getNum_hours_week());
             aux.compruebaBranch(student.getBranch());
             aux.compruebaRolCorrecto(profesorService,student.getPersona().getId());
+            student.setProfesor(profesorService.getById(student.getProfesor().getId_profesor()));
             student.setPersona(personaService.findById(student.getPersona().getId()));
+            logger.info(student.getPersona().toString());
+            logger.info(student.getProfesor().toString());
+            //aux.compruebaProfesorOK(profesorService, student.getPersona().getId());
             studentService.addStudent(student);
             logger.info("NUEVO ESTUDIANTE AÑADIDO: " + student.toString());
             return new ResponseEntity<>(student, HttpStatus.OK);

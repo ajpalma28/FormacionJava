@@ -115,6 +115,20 @@ public class ControllerAux {
         }
     }
 
+    public void compruebaProfesorOK(ProfesorService ps, String id) throws EntityNotFoundException {
+        Profesor p = ps.getById(id);
+        if(p==null){
+            throw new EntityNotFoundException("No hay un profesor con dicho id");
+        }
+    }
+
+    public void compruebaAlumnoOK(StudentService ss, String id) throws EntityNotFoundException {
+        Student s = ss.findById(id);
+        if(s==null){
+            throw new EntityNotFoundException("No hay un alumno con dicho id");
+        }
+    }
+
     public String devuelveRol(ProfesorService ps, StudentService ss, String id){
         String res = "";
         Optional<Profesor> p = ps.getProfesores().stream().filter(x-> x.getPersona().getId().equals(id)).findFirst();

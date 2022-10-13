@@ -1,0 +1,913 @@
+{
+	"info": {
+		"_postman_id": "2f402f6c-370d-40fd-beee-f1ea2beab1f0",
+		"name": "ej7.2-crud-validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. POST persona OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"palmita\",\r\n    \"password\": \"porra\",\r\n    \"name\": \"AJ\",\r\n    \"surname\": \"Palma\",\r\n    \"company_email\": \"antoniojavier.palma@bosonit.com\",\r\n    \"personal_email\": \"palmaaaaa@gmail.com\",\r\n    \"city\": \"Sevilla\",\r\n    \"active\": true,\r\n    \"created_date\": \"2022-08-19\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/persona",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"persona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1. POST persona ERROR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"porra\",\r\n    \"name\": \"AJ\",\r\n    \"surname\": \"Palma\",\r\n    \"company_email\": \"antoniojavier.palma@bosonit.com\",\r\n    \"personal_email\": \"palmaaaaa@gmail.com\",\r\n    \"city\": \"Sevilla\",\r\n    \"active\": true,\r\n    \"created_date\": \"2022-08-19\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/persona",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. PUT persona/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"termination_date\": \"2023-01-31\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/persona/person-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"person-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. PUT persona/{id} ERROR",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"ajp\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/persona/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. GET persona/id/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/persona/id/person-0002",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"persona",
+						"id",
+						"person-0002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. GET persona/profesor/{id} FEIGN OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/profesor/prof-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"profesor",
+						"prof-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. GET persona/id/{id} Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/id/person-0001?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"id",
+						"person-0001"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. GET persona/usuario/{usuario}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/usuario/palmita",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"usuario",
+						"palmita"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. GET persona/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/all?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"all"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. DELETE persona/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. POST estudiante OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"persona\": {\r\n        \"id\": \"person-0001\"\r\n    },\r\n    \"profesor\": {\r\n        \"id_profesor\": \"prof-0001\"},\r\n    \"num_hours_week\":25,\r\n    \"comments\": \"pues aquí probando\",\r\n    \"branch\": \"Backend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estudiante",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiante"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. PUT estudiante/addAsignaturas/{id} OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id_asignatura\": \"asign-0002\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estudiante/addAsignaturas/stud-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiante",
+						"addAsignaturas",
+						"stud-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. PUT estudiante/removeAsignaturas/{id} OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    \"asign-0002\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estudiante/removeAsignaturas/stud-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiante",
+						"removeAsignaturas",
+						"stud-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. PUT estudiante/{id} OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comments\": \"estoy ACTUALIZANDO al estudiante\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estudiante/stud-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiante",
+						"stud-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. GET estudiante/{id} outputType",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estudiante/stud-0001?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiante",
+						"stud-0001"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. GET estudiante/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estudiante/stud-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiante",
+						"stud-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. GET estudiante/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estudiantes/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. DELETE estudiante/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estudiante/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiante",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. POST profesor OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"persona\": {\r\n    \"id\": \"person-0002\"\r\n},\r\n    \"comments\": \"pues aquí probando\",\r\n    \"branch\": \"Backend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/profesor",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"profesor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. PUT profesor/{id} OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comments\": \"estoy ACTUALIZANDO al profesor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/profesor/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profesor",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. GET profesor/{id} outputType",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/profesor/2?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profesor",
+						"2"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. GET profesor/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/profesor/prof-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"profesor",
+						"prof-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. GET profesores/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/profesores/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profesores",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12. DELETE profesor/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/profesor/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profesor",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13. POST asignatura OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"asignatura\": \"MATI\",\r\n    \"comments\": \"estoy probandolo loco\",\r\n    \"initial_date\": \"2022-09-12\",\r\n    \"id_student\": {\r\n        \"id_student\": \"stud-0001\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13. POST asignatura OK Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"asignatura\": \"PID\",\r\n    \"comments\": \"estoy probandolo loco\",\r\n    \"initial_date\": \"2022-09-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14. GET asignatura/{id} OK",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"asignatura\": \"PID\",\r\n    \"comments\": \"estoy probandolo loco\",\r\n    \"initial_date\": \"2022-09-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura/asign-0002",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura",
+						"asign-0002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14. GET asignatura/nombre/{nombre} OK",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"asignatura\": \"PID\",\r\n    \"comments\": \"estoy probandolo loco\",\r\n    \"initial_date\": \"2022-09-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura/nombre/MATI",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura",
+						"nombre",
+						"MATI"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14. GET asignatura/alumno/{id} OK",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"asignatura\": \"PID\",\r\n    \"comments\": \"estoy probandolo loco\",\r\n    \"initial_date\": \"2022-09-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura/alumno/stud-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura",
+						"alumno",
+						"stud-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14. GET asignaturas OK",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"asignatura\": \"PID\",\r\n    \"comments\": \"estoy probandolo loco\",\r\n    \"initial_date\": \"2022-09-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignaturas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignaturas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "15. PUT asignatura OK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comments\": \"estoy actualizandolo loco\",\r\n    \"finish_date\": \"2023-01-31\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura/asign-0001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura",
+						"asign-0001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "16. DELETE asignatura/{id} OK",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

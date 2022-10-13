@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
-@Table(name = "persona")
+@Table(name = "personas")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Persona implements java.io.Serializable {

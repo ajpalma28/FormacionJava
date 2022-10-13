@@ -1,6 +1,7 @@
 package com.example.ej7.crudvalidation.content.domain;
 
 import com.example.ej7.crudvalidation.Generador2;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,8 @@ import javax.validation.constraints.NotNull;
 @Table(name = "profesores")
 @Getter
 @Setter
-public class Profesor {
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
+public class Profesor implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prof_seq")

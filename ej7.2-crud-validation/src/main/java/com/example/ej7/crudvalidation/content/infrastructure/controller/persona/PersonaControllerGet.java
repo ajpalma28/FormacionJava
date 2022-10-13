@@ -9,6 +9,7 @@ import com.example.ej7.crudvalidation.content.domain.Profesor;
 import com.example.ej7.crudvalidation.content.domain.Student;
 import com.example.ej7.crudvalidation.content.domain.exceptions.EntityNotFoundException;
 import com.example.ej7.crudvalidation.content.infrastructure.controller.ControllerAux;
+import com.example.ej7.crudvalidation.content.infrastructure.controller.feign.ProfesorFeignServer;
 import com.example.ej7.crudvalidation.content.infrastructure.rest.spring.dto.ProfesorOutputDTO;
 import com.example.ej7.crudvalidation.content.infrastructure.rest.spring.dto.ProfesorPersonOutputDTO;
 import com.example.ej7.crudvalidation.content.infrastructure.rest.spring.dto.StudentPersonOutputDTO;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,8 @@ public class PersonaControllerGet {
     ProfesorService ps;
     @Autowired
     StudentService ss;
+    @Autowired
+    ProfesorFeignServer profesorFeignClient;
 
     // Cargamos el logger
     Logger logger = LoggerFactory.getLogger(PersonaControllerEdit.class);
@@ -155,6 +159,16 @@ public class PersonaControllerGet {
             }
         }
         return res;
+    }
+
+    @GetMapping("/persona/profesor/{id}")
+    public ResponseEntity<Object> getProfesorId(@PathVariable String id){
+        //ResponseEntity<ProfesorOutputDTO> rs = new RestTemplate().getForEntity("http://localhost:8081/persona/profesor/"+id, ProfesorOutputDTO.class);
+        ResponseEntity<Object> rs = profesorFeignClient.getProfesorId(id);
+        /*ProfesorOutputDTO prof = new ProfesorOutputDTO(service.getProfesor(id).getId_profesor(), service.getProfesor(id).getPersona(),
+                service.getProfesor(id).getComments(), service.getProfesor(id).getBranch());
+        return ResponseEntity.ok(prof);*/
+        return ResponseEntity.ok(rs.getBody());
     }
 
 }

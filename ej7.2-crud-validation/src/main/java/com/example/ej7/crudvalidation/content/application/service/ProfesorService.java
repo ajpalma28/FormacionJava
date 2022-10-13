@@ -1,6 +1,7 @@
 package com.example.ej7.crudvalidation.content.application.service;
 
 import com.example.ej7.crudvalidation.content.domain.Profesor;
+import com.example.ej7.crudvalidation.content.domain.Student;
 
 import java.util.List;
 

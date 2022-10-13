@@ -1,14 +1,17 @@
 package com.example.ej7.crudvalidation.content.domain;
 
 import com.example.ej7.crudvalidation.Generador2;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "estudiantes")
 @Getter
@@ -34,13 +37,13 @@ public class Student implements java.io.Serializable {
     Integer num_hours_week;
     @Column(name = "comentarios")
     String comments;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_profesor")
     Profesor profesor;
     @NotNull
     @Column(name = "rama")
     String branch;
-    //@OneToMany
-    //List<Estudiante_Asignatura> asignaturas;
+    @OneToMany
+    List<Estudiante_Asignatura> asignaturas = new ArrayList<>();
 
 }

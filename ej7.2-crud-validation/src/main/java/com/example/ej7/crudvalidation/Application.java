@@ -1,14 +1,11 @@
 package com.example.ej7.crudvalidation;
 
-import com.example.ej7.crudvalidation.content.domain.Persona;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
 public class Application {
 
 	public static void main(String[] args) {

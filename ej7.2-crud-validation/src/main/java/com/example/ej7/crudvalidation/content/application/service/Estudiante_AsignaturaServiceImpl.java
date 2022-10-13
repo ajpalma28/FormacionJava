@@ -67,4 +67,18 @@ public class Estudiante_AsignaturaServiceImpl implements Estudiante_AsignaturaSe
         ea.ifPresent(asignatura -> repository.delete(asignatura));
     }
 
+    @Override
+    public List<Estudiante_Asignatura> buscaPorIdEstudiante(String id) {
+        List<Estudiante_Asignatura> lista = new ArrayList<>();
+        repository.findAll().forEach(lista::add);
+        lista.forEach(x -> {
+            if(x.getId_student()!=null){
+                if(!x.getId_student().getId_student().equals(id)){
+                    lista.remove(x);
+                }
+            }
+        });
+        return lista;
+    }
+
 }

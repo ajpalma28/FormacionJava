@@ -14,5 +14,6 @@ public interface Estudiante_AsignaturaService {
     void eliminaAsignatura(Estudiante_Asignatura asignatura);
     void eliminaTodas();
     void eliminaPorId(String id);
+    List<Estudiante_Asignatura> buscaPorIdEstudiante(String id);
 
 }

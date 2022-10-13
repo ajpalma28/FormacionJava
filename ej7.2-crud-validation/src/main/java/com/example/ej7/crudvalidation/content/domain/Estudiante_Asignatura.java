@@ -17,27 +17,36 @@ import javax.validation.constraints.NotNull;
 public class Estudiante_Asignatura implements java.io.Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "asign-seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "asign_seq")
     @GenericGenerator(
-            name = "asign-seq",
+            name = "asign_seq",
             strategy = "com.example.ej7.crudvalidation.Generador2",
             parameters = {
                     @org.hibernate.annotations.Parameter(name = Generador2.INCREMENT_PARAM, value = "1"),
                     @org.hibernate.annotations.Parameter(name = Generador2.VALUE_PREFIX_PARAMETER, value = "asign-"),
                     @org.hibernate.annotations.Parameter(name = Generador2.NUMBER_FORMAT_PARAMETER, value = "%04d")
             })
-    private String id_asignatura;
-    //@OneToMany
-    //@JoinColumn(name = "id_student")
-    //List<Student> id_student;
+    String id_asignatura;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "id_student")
+    Student id_student;
     @Column(name = "asignatura")
-    private String asignatura;
+    String asignatura;
     @Column(name = "comentarios")
-    private String comments;
+    String comments;
     @NotNull
     @Column(name = "fecha_inicial")
-    private String initial_date;
+    String initial_date;
     @Column(name = "fecha_final")
-    private String finish_date;
+    String finish_date;
+
+    public boolean equals(Object o){
+        Estudiante_Asignatura ea = (Estudiante_Asignatura) o;
+        return this.getId_asignatura().equals(ea.getId_asignatura());
+    }
+
+    public String toString(){
+        return id_asignatura+": "+asignatura;
+    }
 
 }
