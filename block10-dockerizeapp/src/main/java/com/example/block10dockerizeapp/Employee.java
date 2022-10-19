@@ -1,2 +1,17 @@
-package com.example.block10dockerizeapp;public class Employee {
+package com.example.block10dockerizeapp;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Employee {
+
+    private String employeeId, employeeName, employeeAddress, employeeEmail;
+
 }

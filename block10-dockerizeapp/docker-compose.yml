@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  postgres:
+    container_name: postgresgroup1
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=contrasena
+      - POSTGRES_DB=test
+    networks:
+      - "mynetwork"
+
+  backend:
+    image: ej10docker:latest
+    container_name: dockergroup1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - "mynetwork"
+
+networks:
+  mynetwork:
