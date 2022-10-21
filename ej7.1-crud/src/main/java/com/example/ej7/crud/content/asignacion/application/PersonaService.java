@@ -1,7 +1,6 @@
 package com.example.ej7.crud.content.asignacion.application;
 
 import com.example.ej7.crud.content.asignacion.domain.Persona;
-import com.example.ej7.crud.content.asignacion.domain.PersonaImpl;
 import com.example.ej7.crud.content.asignacion.infrastructure.controller.PersonaController1;
 import com.example.ej7.crud.content.asignacion.infrastructure.controller.PersonaController2;
 import com.example.ej7.crud.content.asignacion.infrastructure.controller.PersonaController3;
@@ -26,11 +25,11 @@ public class PersonaService {
     @Autowired
     PersonaController4 controller4;
 
-    public Persona anyadePersona(PersonaImpl p){
+    public Persona anyadePersona(Persona p){
         return controller1.addPersona(p);
     }
 
-    public Persona editaPersona(int id, PersonaImpl p){
+    public Persona editaPersona(int id, Persona p){
         return controller2.editaPersona(id,p);
     }
 

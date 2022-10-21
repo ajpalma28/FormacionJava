@@ -4,6 +4,9 @@ import com.example.ej7.crud.content.asignacion.domain.Persona;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +38,7 @@ public class PersonaController4 {
     public List<Persona> getPersonaNombre(@PathVariable String nombre){
         List<Persona> res = new ArrayList<Persona>();
         logger.info("Vamos a buscar las personas cuyo nombre sea "+nombre);
-        listaPersonas.stream().filter(x->x.getNombre().equals(nombre)).forEach(res::add);
+        listaPersonas.stream().filter(x->x.getName().equals(nombre)).forEach(res::add);
         if(!res.isEmpty()){
             logger.info("PERSONAS ENCONTRADAS -------->");
             res.forEach(x->logger.info(x.toString()));
