@@ -12,7 +12,10 @@ import java.util.Arrays;
 @RestController
 public class PrincipalController {
 
-    @GetMapping(value = {"{loquesea}", "{algo}/{otro}"})
+    // Los REDIRIGE se podrían hacer con filtros, en lugar de con el sendRedirect
+    // Queda pendiente para rehacerlo
+
+    @GetMapping("**")
     public ControllerObject entryOther(HttpServletRequest httpServletRequest, HttpServletResponse response){
         httpServletRequest.getHeaderNames().asIterator().forEachRemaining(x-> {
             if(x.equals("redirige")){
