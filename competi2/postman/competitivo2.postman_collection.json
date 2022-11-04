@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "b6e2899a-abca-429c-94c9-49e77d0c720d",
+		"name": "competitivo2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. PRUEBA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. PRUEBA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/one",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"one"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. PRUEBA",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "asul",
+						"value": "surra",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/federico/guaje?ola=pasa",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"federico",
+						"guaje"
+					],
+					"query": [
+						{
+							"key": "ola",
+							"value": "pasa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. PRUEBA Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "asul",
+						"value": "surra",
+						"type": "default"
+					},
+					{
+						"key": "REDIRIGE",
+						"value": "vamos",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/federico/guaje?ola=pasa",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"federico",
+						"guaje"
+					],
+					"query": [
+						{
+							"key": "ola",
+							"value": "pasa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. PRUEBA",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "REDIRIGE",
+						"value": "hola",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/one",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"one"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
